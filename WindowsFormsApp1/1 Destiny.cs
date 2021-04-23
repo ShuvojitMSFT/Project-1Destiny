@@ -695,24 +695,31 @@ namespace Project_1Destiny
 
         private void commitbtn_Click(object sender, EventArgs e)
         {
-            int casenum = Int32.Parse(CaseNumber.Text);
-            if (case_set.Contains(casenum))
-            case_set.Remove(casenum);
-            CaseListBox.Items.Remove(casenum);
-            if (File.Exists(@"C:\temp\DEstiny1\" + casenum + ".rtf"))
+            try
             {
-                File.Delete(@"C:\temp\DEstiny1\" + casenum + ".rtf");
-                File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whatis.rtf");
-                File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whatisnt.rtf");
-                File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whenis.rtf");
-                File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whenisnt.rtf");
-                File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whereis.rtf");
-                File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whereisnt.rtf");
-                File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_extentis.rtf");
-                File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_extentisnt.rtf");
+                int casenum = Int32.Parse(CaseNumber.Text);
+                if (case_set.Contains(casenum))
+                    case_set.Remove(casenum);
+                CaseListBox.Items.Remove(casenum);
+                if (File.Exists(@"C:\temp\DEstiny1\" + casenum + ".rtf"))
+                {
+                    File.Delete(@"C:\temp\DEstiny1\" + casenum + ".rtf");
+                    File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whatis.rtf");
+                    File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whatisnt.rtf");
+                    File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whenis.rtf");
+                    File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whenisnt.rtf");
+                    File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whereis.rtf");
+                    File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_whereisnt.rtf");
+                    File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_extentis.rtf");
+                    File.Delete("c:\\Temp\\Destiny1\\" + CaseNumber.Text + "_extentisnt.rtf");
+                }
+                CaseNumber.Text = " ";
+                SOAPNotes.Text = Soap_template.Text;
             }
-            CaseNumber.Text = " ";
-            SOAPNotes.Text = Soap_template.Text;
+            catch
+            {
+
+            }
 
         }
 
